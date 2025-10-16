@@ -5,14 +5,11 @@ import LogoTicker from "@/sections/logoTicker";
 import Pricing from "@/sections/pricing";
 import ProductShowCase from "@/sections/productShowCase";
 import TestImonials from "@/sections/testImonials";
-import { createContext } from "react";
-import { Context } from "./custom/context";
 import { useState } from "react";
 import Header from "./component/common/header";
 import SmallHeader from "./component/common/smallHeader";
 import Footer from "./component/common/footer";
-export const api=createContext<Context|null>(null)
-
+import { AppContext } from "./component/createContext";
 export default function Home() {
   const [openHeader,setOpenHeader]=useState(false)
   const value={
@@ -20,7 +17,7 @@ export default function Home() {
     setOpenHeader
 }
   return (
-     <api.Provider value={value}>
+     <AppContext.Provider value={value}>
        <Header/>
        {openHeader&& <SmallHeader/>}
        
@@ -35,7 +32,7 @@ export default function Home() {
     </div>
             <Footer/>
 
-     </api.Provider>
+     </AppContext.Provider>
     
   );
 }

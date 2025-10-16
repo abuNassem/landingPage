@@ -3,9 +3,9 @@ import React, { useContext } from 'react'
 
 import LogoSaas from '@/asset/logo-saas.jpg'
 import { MdClose } from 'react-icons/md'
-import { api } from '@/app/page'
+import { AppContext } from '../createContext'
 const SmallHeader = () => {
-  const context=useContext(api)
+  const context=useContext(AppContext)
   return (
     <div onClick={()=>context?.setOpenHeader(false)} className='w-full h-[100vh] bg-zinc-900/60 fixed z-100 flex justify-end md:hidden '>
       <div className='w-[300px] h-full bg-gradient-to-b from-white to-indigo-500/60 p-2'>
